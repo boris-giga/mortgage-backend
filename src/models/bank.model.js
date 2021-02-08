@@ -14,7 +14,9 @@ Bank.create = function (newBank, result) {
 dbConn.query("INSERT INTO banks set ?", newBank, function (err, res) {
 if(err) {
   console.log("error: ", err);
-  result(err, null);
+  res.status(500).send({
+    message: err.message || 'some err occured while creating the bank'
+  })
 }
 else{
   console.log(res.insertId);
@@ -22,12 +24,13 @@ else{
 }
 });
 };
-
-Bank.findAll = function (result) {
+findAll = function (result) {
 dbConn.query("Select * from banks", function (err, res) {
 if(err) {
   console.log("error: ", err);
-  result(null, err);
+  res.status(500).send({
+    message: err.message || 'some err occured while fetching banks'
+  })
 }
 else{
   console.log('banks : ', res);
@@ -39,7 +42,9 @@ Bank.update = function(id, bank, result){
 dbConn.query("UPDATE banks SET name=?, interestRate=?, maximumLoan=?, downPaymentPercent=?, loanTerm=? WHERE id = ?", [bank.name,bank.interestRate,bank.maximumLoan,bank.downPaymentPercent,bank.loanTerm, id], function (err, res) {
 if(err) {
   console.log("error: ", err);
-  result(null, err);
+  res.status(500).send({
+    message: err.message || 'some err occured while updating the bank'
+  })
 }else{
   result(null, res);
 }
@@ -49,7 +54,9 @@ Bank.delete = function(id, result){
 dbConn.query("DELETE FROM banks WHERE id = ?", [id], function (err, res) {
 if(err) {
   console.log("error: ", err);
-  result(null, err);
+  res.status(500).send({
+    message: err.message || 'some err occured while deleting bank'
+  });
 }
 else{
   result(null, res);
