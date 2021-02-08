@@ -28,7 +28,7 @@ findAll = function (result) {
 dbConn.query("Select * from banks", function (err, res) {
 if(err) {
   console.log("error: ", err);
-  res.status(500).send({
+  result.status(500).send({
     message: err.message || 'some err occured while fetching banks'
   })
 }
@@ -42,7 +42,7 @@ Bank.update = function(id, bank, result){
 dbConn.query("UPDATE banks SET name=?, interestRate=?, maximumLoan=?, downPaymentPercent=?, loanTerm=? WHERE id = ?", [bank.name,bank.interestRate,bank.maximumLoan,bank.downPaymentPercent,bank.loanTerm, id], function (err, res) {
 if(err) {
   console.log("error: ", err);
-  res.status(500).send({
+  result.status(500).send({
     message: err.message || 'some err occured while updating the bank'
   })
 }else{
@@ -54,7 +54,7 @@ Bank.delete = function(id, result){
 dbConn.query("DELETE FROM banks WHERE id = ?", [id], function (err, res) {
 if(err) {
   console.log("error: ", err);
-  res.status(500).send({
+  result.status(500).send({
     message: err.message || 'some err occured while deleting bank'
   });
 }
