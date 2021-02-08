@@ -22,7 +22,18 @@ else{
 }
 });
 };
-findAll = function (result) {
+// Bank.findById = function (id, result) {
+// dbConn.query("Select * from employees where id = ? ", id, function (err, res) {
+// if(err) {
+//   console.log("error: ", err);
+//   result(err, null);
+// }
+// else{
+//   result(null, res);
+// }
+// });
+// };
+Bank.findAll = function (result) {
 dbConn.query("Select * from banks", function (err, res) {
 if(err) {
   console.log("error: ", err);
