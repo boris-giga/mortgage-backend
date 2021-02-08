@@ -1,7 +1,7 @@
 'use strict';
 const mysql = require('mysql');
 //local mysql db connection
-const dbConn = mysql.createPool({
+const dbConn = mysql.createConnection({
   host     : 'us-cdbr-east-03.cleardb.com',
   user     : 'b87f1c5b2e3543',
   password : 'e74f5651',
