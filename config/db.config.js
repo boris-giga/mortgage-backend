@@ -7,8 +7,8 @@ const dbConn = mysql.createPool({
   password : 'e74f5651',
   database : 'heroku_ff5f1383f7bc448'
 });
-// dbConn.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Database Connected!");
-// });
+dbConn.connect(function(err) {
+  if (err) throw err;
+  console.log("Database Connected!");
+});
 module.exports = dbConn;
