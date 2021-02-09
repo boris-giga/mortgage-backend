@@ -4,6 +4,7 @@ how to take database configs:
 heroku config | findstr CLEARDB_DATABASE_URL
 
 available APIs:
+
 GET https://quiet-inlet-20067.herokuapp.com/api/v1/banks - returns all banks from db
 POST https://quiet-inlet-20067.herokuapp.com/api/v1/banks - creates new bank in db
 PUT https://quiet-inlet-20067.herokuapp.com/api/v1/banks/{id} - updates bank
