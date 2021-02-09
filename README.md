@@ -1,7 +1,5 @@
 # mortgage-backend
 Це бекендна частина додатку, написана на NodeJS i mySQL.
-git push heroku master
-
 how to take database configs:
 heroku config | findstr CLEARDB_DATABASE_URL
 
